@@ -1,0 +1,4 @@
+ECHO INSTALADOR DE SQL SERVER 
+sqlcmd -Slocalhost -E -i "ScriptDB.sql"
+ECHO TODAVIA NO HAY DATOS 
+PAUSE
