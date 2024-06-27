@@ -1,0 +1,12 @@
+use TChatBot
+go 
+-- Iniciar el insert de datos para la tabla Persona
+INSERT INTO Persona(dni, nombre, apellido, fecha_nacimiento)
+values
+(73866456,'ERICK', 'KEVIN', 'AGUILA','BARRIENTOS'),
+(71077071,'TANIA APAZA ROJAS'),
+(71340325,'BRANDON JAIR CHIPANA SALAZAR'),
+(7408,'ERICK', 'KEVIN', 'AGUILA','BARRIENTOS'),
+(73866456,'ERICK', 'KEVIN', 'AGUILA','BARRIENTOS'),
+(73866456,'ERICK', 'KEVIN', 'AGUILA','BARRIENTOS'),
+(73866456,'ERICK', 'KEVIN', 'AGUILA','BARRIENTOS'),

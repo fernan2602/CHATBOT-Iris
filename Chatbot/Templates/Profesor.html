@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lista de Estudiantes</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+
+.topnav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+        form {
+            margin: 20px auto;
+            width: 400px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .form-group {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            width: 150px;
+            margin-right: 10px;
+            text-align: right;
+        }
+        .form-group input {
+            flex: 2;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+        table {
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding: 5px;
+            margin: 20px auto; /* Centrar horizontalmente */
+            width: 80%; /* Ancho de la tabla */
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <div class="topnav">
+        <a href="/">Menu</a>
+      </div>
+
+      
+    <h1 style = "text-align: center;">LISTAR Estudiantes</h1>
+    
+    <!-- Formulario para insertar datos -->
+    <form style="text-align: center;" action="/insertar" method="post">
+        <label for="dni">DNI:</label>
+        <input type="text" id="dni" name="dni" required><br><br>
+
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required><br><br>
+
+        <label for="apellido">Apellido:</label>
+        <input type="text" id="apellido" name="apellido" required><br><br>
+
+        <label for="correo">Correo Electrónico:</label>
+        <input type="email" id="correo" name="correo" required><br><br>
+
+        <label for="telefono">Telefono:</label>
+        <input type="number" id="telefono" name="telefono" required><br><br>
+
+        <label for="nota">Nota:</label>
+        <input type="number" id="nota" name="nota" required><br><br>
+
+        <input type="submit" name="accion" value="Insertar">
+        <input type="submit" name="accion" value="Eliminar">
+        <input type="submit" name="accion" value="Actualizar">
+    </form>
+
+    <table style ="width: 80%;">
+        <thead>
+            <tr>
+                <th>DNI</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Correo Electronico</th>
+                <th>Numero</th>
+                <th>Nota</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for estudiante in estudiantes %}
+            <tr>
+                <td>{{ estudiante.dni }}</td>
+                <td>{{ estudiante.nombre }}</td>
+                <td>{{ estudiante.apellido }}</td>
+                <td>{{ estudiante.correoElectronico }}</td>
+                <td>{{ estudiante.nroCelular }}</td>
+                <td>{{ estudiante.nota }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

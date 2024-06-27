@@ -1,0 +1,84 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChatBot</title>
+    <style>
+        body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+
+.topnav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+
+      .chat-box { width: 300px; margin: 15px auto; }
+        .chat-box input { width: calc(100% - 60px); }
+        .chat-box button { width: 50px; }
+        .chat-box .messages { border: 1px solid #ccc; padding: 10px; margin-bottom: 10px; height: 300px; overflow-y: scroll; }
+        .chat-box .message { margin-bottom: 10px; }
+        .chat-box .message.user { text-align: right; }
+    </style>
+</head>
+<body>
+    <div class="topnav">
+        <a href="Profesor.html">Profesor</a>
+      </div>
+      
+        <div class="chat-box">
+            <div class="messages" id="messages"></div>
+            <input type="text" id="question" placeholder="Escribe tu pregunta">
+            <button onclick="sendQuestion()">Enviar</button>
+        </div>
+     
+
+
+    <script>
+        function sendQuestion() {
+    const question = document.getElementById('question').value;
+    fetch('/ask', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ question })
+    })
+    .then(response => response.json())
+    .then(data => {
+        const messages = document.getElementById('messages');
+        const userMessage = document.createElement('div');
+        userMessage.className = 'message user';
+        userMessage.innerText = question;
+        messages.appendChild(userMessage);
+        const botMessage = document.createElement('div');
+        botMessage.className = 'message bot';
+        botMessage.innerText = data.response;
+        messages.appendChild(botMessage);
+        document.getElementById('question').value = '';
+    });
+}
+    </script>
+</body>
+</html>
