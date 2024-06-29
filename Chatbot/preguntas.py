@@ -6,6 +6,7 @@ import difflib
 from preguntaspersona import PreguntasPersona
 from preguntashorario import PreguntasHorario
 from preguntasasignatura import PreguntasAsignatura
+from ia import  IAConsultas
 
 # Ejemplo de preguntas y respuestas
 class Preguntas: 
@@ -15,7 +16,8 @@ class Preguntas:
         "Hola soy tu asistente personal":["hola", "hello", "q hay"],
         "TPersona":["profesor", "maestro","docente","alumno","compañeros"],
         "TAsignatura":[ "curso", "asignatura","materia"],
-        "THorario":["hora", "dia","que hora","lugar","clase","salon","aula","horario"]
+        "THorario":["hora", "dia","que hora","lugar","clase","salon","aula","horario"],
+        "IA":["chat","ayudame","gpt","iris"]
         }
         
         
@@ -50,7 +52,6 @@ class Preguntas:
                 Consulta = PreguntasPersona()
                 print(mejor_coincidencia)
                 Respuesta = Consulta.buscar_pregunta_similar(mejor_coincidencia,pregunta_completa)
-                
                 return  Respuesta
             if mejor_coincidencia == "THorario":
                 Consulta = PreguntasHorario()
@@ -61,10 +62,12 @@ class Preguntas:
                 Consulta = PreguntasAsignatura()
 
                 Respuesta = Consulta.buscar_pregunta_similar(mejor_coincidencia,pregunta_completa)
-
                 return  Respuesta
+            if mejor_coincidencia == "IA":
+                IA = IAConsultas()
+                respuesta = IA.obtener_respuesta(pregunta_completa)
+                return respuesta
             
-
             else:
                 return mejor_coincidencia
                

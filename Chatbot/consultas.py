@@ -5,6 +5,7 @@ from connexion import Search
 
 class Consultas():
     #Consultas a la base de datos
+
     #Consulta busqueda en tablas
     def search_by_all(self,columna,tabla,params =None):
         db = Search()
@@ -26,5 +27,3 @@ class Consultas():
     
         
     
-
-

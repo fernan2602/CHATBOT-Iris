@@ -1,9 +1,9 @@
-# app.py
 from flask import Flask, request, render_template, jsonify
 from preguntas import Preguntas
 import pyodbc
 #Instalar nueva libreria para poder usar las tablas de la base de datos
 from connexion import Search
+from ia import  IAConsultas
 
 
 app = Flask(__name__)
@@ -34,6 +34,7 @@ def query_db(query, params = None , select=False):
         conn.close()
     
     
+
 @app.route('/', methods=['GET'])
 def index():
     return render_template('index.html')
@@ -45,11 +46,23 @@ def ask():
         return jsonify({"error": "Bad Request", "message": "No question provided"}), 400
     
     pregunta_usuario = data['question']
-    pPractica = Preguntas()
+    print(pregunta_usuario.split())
 
-    dato = pPractica.buscar_pregunta_similar(pregunta_usuario.split())    
+    pPractica = Preguntas()
+    for consulta in pregunta_usuario.split():
+        if consulta=="chat" or "gpt" or "iris":
+            IA = IAConsultas()
+            dato = IA.obtener_respuesta(pregunta_usuario)
+            return jsonify({"response": dato})
+    
+    dato = pPractica.buscar_pregunta_similar(pregunta_usuario.split())   
+    
     print(dato)
     return jsonify({"response": dato})
+
+    # Suponiendo que Preguntas() es una clase y buscar_pregunta_similar es un método de esa clase
+    
+
 
 @app.route('/Profesor.html', methods=['GET'])
 def Profesor():
@@ -139,3 +152,13 @@ def insertar():
 
 if __name__ == '__main__':
     app.run(debug=True)
+
+
+
+
+
+
+
+
+
+

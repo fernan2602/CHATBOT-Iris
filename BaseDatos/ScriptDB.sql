@@ -33,8 +33,12 @@ CREATE TABLE TPersona (
     apellido VARCHAR(50),
     correoElectronico VARCHAR(100),
     nroCelular VARCHAR(15),
+<<<<<<< HEAD
     docente varchar(2),
     nota int 
+=======
+    docente varchar(2)
+>>>>>>> 6a832e0b0b908f1eff423a4cb9d8ef209f6d3675
 );
 GO
 

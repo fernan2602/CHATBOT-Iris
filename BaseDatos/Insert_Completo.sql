@@ -3,6 +3,7 @@ go
 INSERT INTO TPersona (dni, nombre, apellido, correoElectronico, nroCelular,docente) 
 VALUES 
 ('23983332','HUGO','ESPETIA HUAMANGA','23983332@CONTINENTAL.EDU.PE','999999999','si');
+<<<<<<< HEAD
 ('11111111', 'Juan', 'Gómez', 'juan@gmail.com', '987654321', 'no', 15),
 ('22222222', 'María', 'López', 'maria@gmail.com', '654321987', 'no', 12),
 ('33333333', 'Carlos', 'Martínez', 'carlos@gmail.com', '789456123', 'no', 18),
@@ -12,6 +13,8 @@ VALUES
 ('77777777', 'Pablo', 'Fernández', 'pablo@gmail.com', '852963147', 'no', 17),
 ('88888888', 'Sara', 'Díaz', 'sara@gmail.com', '369852147', 'no', 13),
 ('10101010', 'Elena', 'Hernández', 'elena@gmail.com', '258741369', 'no', 15);
+=======
+>>>>>>> 6a832e0b0b908f1eff423a4cb9d8ef209f6d3675
 
 INSERT INTO TAsignatura (NRC, NombreAsignatura, DniProfesor) 
 VALUES 
