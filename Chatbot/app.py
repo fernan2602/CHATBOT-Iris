@@ -46,22 +46,43 @@ def ask():
         return jsonify({"error": "Bad Request", "message": "No question provided"}), 400
     
     pregunta_usuario = data['question']
-    print(pregunta_usuario.split())
 
     pPractica = Preguntas()
-    for consulta in pregunta_usuario.split():
-        if consulta=="chat" or "gpt" or "iris":
-            IA = IAConsultas()
-            dato = IA.obtener_respuesta(pregunta_usuario)
-            return jsonify({"response": dato})
     
+    for clave  in pregunta_usuario.split():
+        print (clave)
+        if clave == "chat" and "ayudame" and "iris":
+            dato_2 = ia(pregunta_usuario)
+            return jsonify({"response":dato_2})
+            
     dato = pPractica.buscar_pregunta_similar(pregunta_usuario.split())   
+    return jsonify({"response":dato})  
     
-    print(dato)
+    
     return jsonify({"response": dato})
 
     # Suponiendo que Preguntas() es una clase y buscar_pregunta_similar es un método de esa clase
     
+def ia(pregunta_usuario):
+    salida = 'True'
+    while salida == 'True':
+        pregunta = pregunta_usuario
+        data = request.get_json()
+        
+        if pregunta == "adios"or "salir" or "exit":
+            salida = 'False'
+
+        IA = IAConsultas()
+        dato = IA.obtener_respuesta(pregunta)
+
+
+        return dato
+    
+    
+
+    
+
+
 
 
 @app.route('/Profesor.html', methods=['GET'])

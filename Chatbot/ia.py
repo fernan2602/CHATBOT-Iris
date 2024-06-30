@@ -9,7 +9,7 @@ class IAConsultas:
         response = openai.ChatCompletion.create(
             model='gpt-3.5-turbo',  # Utiliza el modelo correcto
             messages=[
-                {'role': 'system', 'content': "Eres un asistente útil y específico."},
+                {'role': 'system', 'content': "Eres un asistente útil ."},
                 {'role': 'user', 'content': pregunta}
             ]
         )
@@ -17,12 +17,10 @@ class IAConsultas:
         respuesta = response['choices'][0]['message']['content'].strip()
         return respuesta
 
-# Crear una instancia de la clase IAConsultas
-consultas = IAConsultas()
+
 
 # Llamar al método obtener_respuesta con una pregunta
-dato = consultas.obtener_respuesta("¿Qué es masturbarse?")
-print(dato)
+
 
 
 
