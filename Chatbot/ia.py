@@ -1,7 +1,7 @@
 import openai
 
 # Configura tu clave API de OpenAI
-openai.api_key = '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'
+openai.api_key = 'clave en comentarios'
 
 class IAConsultas:
     def obtener_respuesta(self, pregunta):

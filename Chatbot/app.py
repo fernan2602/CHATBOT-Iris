@@ -59,7 +59,7 @@ def ask():
     return jsonify({"response":dato})  
     
     
-    return jsonify({"response": dato})
+    
 
     # Suponiendo que Preguntas() es una clase y buscar_pregunta_similar es un método de esa clase
     
